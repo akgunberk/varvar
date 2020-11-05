@@ -1,0 +1,51 @@
+@import "../assets/breakpoints";
+@import "../assets/color-variables";
+
+.basket {
+  position: relative;
+  &__button {
+    display: none;
+    cursor: pointer;
+  }
+  &__logo {
+    font-size: 28px;
+    color: white;
+  }
+  &__count {
+    display: inline-block;
+    line-height: 25px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: $color-warn;
+    width: 25px;
+    height: 25px;
+    border-radius: 99px;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .basket {
+    &__logo {
+      display: none !important;
+    }
+    &__button {
+      display: block;
+      background: $brand-color;
+      width: 144px;
+      height: 48px;
+      border-radius: 28px;
+      font-size: 16px;
+      color: white;
+    }
+
+    &__cart {
+      margin: 0px 4px 0px 24px;
+    }
+
+    &__details {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

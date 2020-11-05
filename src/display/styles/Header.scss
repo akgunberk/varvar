@@ -1,0 +1,50 @@
+@import "../assets/color-variables";
+@import "../assets/breakpoints";
+
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: $brand-color;
+
+  &__hamburger {
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__brand-logo {
+    display: none;
+
+    &--white {
+      display: block;
+    }
+  }
+}
+
+.brand-banner {
+  padding-left: 220px;
+  font-size: 35px;
+  background: transparent url("../../header-bg.png") 0% 0% no-repeat padding-box;
+  height: 74px;
+}
+
+@media (min-width: $breakpoint-sm) {
+  .header {
+    justify-content: space-around;
+    background: white;
+
+    &__hamburger {
+      display: none;
+    }
+
+    &__brand-logo {
+      display: block;
+      &--white {
+        display: none;
+      }
+    }
+  }
+}

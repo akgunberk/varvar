@@ -1,0 +1,40 @@
+@import "../assets/breakpoints";
+@import "../assets/color-variables";
+
+.search-bar,
+.search-bar--brand {
+  display: none;
+  &__input {
+    width: 200px;
+    background-color: $color-search-bg;
+    height: 50px;
+    border-radius: 28px;
+    border: 2px solid #edf1f2;
+  }
+  &__submit {
+    width: 66px;
+    height: 40px;
+    border-radius: 28px;
+    border: none;
+    background-color: $color-success;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .search-bar {
+    display: block;
+    &__input {
+      width: 500px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .search-bar--brand {
+    display: block;
+    background: white;
+    &__input {
+      width: 200px;
+    }
+  }
+}
