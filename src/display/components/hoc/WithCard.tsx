@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { baseEnhancerHoc } from "./BaseEnhancer";
 
+const images = require.context("../../../pngs", false);
+
 interface withCardProps {
   card: {
     name: string;
@@ -20,9 +22,10 @@ const Card = (props: withCardProps) => {
     }
     setCount(count - 1);
   };
+  let source = images("./" + props.card.image + ".png")
   return (
     <div className="card">
-      {props.card.image}
+      <img src={source.default} alt={props.card.name} width="244px" height="242px" />
       <div className="card__name">{props.card.name} </div>
       <div className="card__cargo-free">Ücretsiz Teslimat</div>
       <div className="card__price">{props.card.price} TL</div>

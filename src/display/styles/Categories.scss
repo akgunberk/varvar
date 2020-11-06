@@ -1,6 +1,8 @@
 @import "../assets/color-variables";
+@import "../assets/breakpoints";
 
 .categories {
+  display: none;
   &__hamburger {
     padding: 36px 140px 10px;
     color: #044dc3;
@@ -32,5 +34,11 @@
       background: $brand-color !important;
       color: white;
     }
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .categories {
+    display: block;
   }
 }

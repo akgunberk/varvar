@@ -1,4 +1,6 @@
 @import "../assets/color-variables";
+@import "../assets/breakpoints";
+
 .cards {
   padding: 10px 140px;
   display: grid;
@@ -18,15 +20,19 @@
 
   &__name {
     font-size: 15px;
+    color: $color-text-opaque;
   }
 
   &__cargo-free {
     font-size: 15px;
+    color: $color-success;
+    padding: 2px 0px;
   }
 
   &__price {
     font-size: 16px;
     color: black;
+    margin-bottom: 3px;
   }
 
   &__add-basket {
@@ -60,5 +66,11 @@
       cursor: pointer;
       color: white;
     }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .card {
+    margin: auto auto;
   }
 }

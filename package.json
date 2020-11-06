@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@svgr/cli": "^5.4.0"
+    "@svgr/cli": "^5.4.0",
+    "@types/webpack-env": "^1.15.3"
   }
 }
