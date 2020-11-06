@@ -4,7 +4,7 @@ import { Basket, SearchBar } from "../components";
 
 import "../styles/Header.scss";
 
-function Header() {
+export function Header() {
   return (
     <>
       <div className="header">
@@ -16,11 +16,8 @@ function Header() {
         <SearchBar />
         <Basket />
       </div>
-      <div className="brand-banner">
-        <SearchBar banner />
-      </div>
+      <SearchBar banner />
     </>
   );
 }
 
-export default Header;

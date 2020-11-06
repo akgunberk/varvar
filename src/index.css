@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  color: white;
   font-variant-numeric: lining-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,6 +18,7 @@ optgroup,
 select,
 textarea {
   color: inherit;
+  outline: none;
 }
 
 input[type="text"] {

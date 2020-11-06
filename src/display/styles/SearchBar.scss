@@ -1,40 +1,106 @@
 @import "../assets/breakpoints";
 @import "../assets/color-variables";
 
-.search-bar,
-.search-bar--brand {
+.search-bar {
+  position: relative;
   display: none;
+}
+
+.search-bar,
+.search-bar--banner {
   &__input {
     width: 200px;
     background-color: $color-search-bg;
     height: 50px;
     border-radius: 28px;
     border: 2px solid #edf1f2;
+    padding-right: 64px;
+    padding-left: 36px;
   }
   &__submit {
-    width: 66px;
+    width: 64px;
     height: 40px;
     border-radius: 28px;
+    padding: 0px;
+    margin-left: -70px;
     border: none;
     background-color: $color-success;
+    cursor: pointer;
+  }
+  &__magnifier {
+    width: 20px;
+    height: 20px;
+    color: #555555;
+    position: absolute;
+    left: 48px;
+    top: 17px;
+  }
+}
+
+.search-bar--banner {
+  font-size: 35px;
+  height: 74px;
+  display: flex;
+  justify-content: left;
+  padding-left: auto;
+  align-items: center;
+  background: transparent url("../../header-bg.png") 0% 0% repeat padding-box;
+  &::before {
+    color: white;
+    content: "ÇiçekSepeti";
+    margin-left: 140px;
+  }
+  &__input,
+  &__submit {
+    display: none;
   }
 }
 
 @media (min-width: $breakpoint-sm) {
   .search-bar {
-    display: block;
+    display: flex;
+    flex: 1;
+    align-items: center;
+
     &__input {
-      width: 500px;
+      margin-left: 32px;
+      display: flex;
+      flex-grow: 1;
+      margin: auto auto;
+      max-width: 872px;
     }
   }
 }
 
 @media (max-width: $breakpoint-sm) {
-  .search-bar--brand {
-    display: block;
-    background: white;
+  .search-bar--banner {
+    background: $banner-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &::before {
+      content: none;
+    }
+
+    &__input,
+    &__submit {
+      display: block;
+    }
+
     &__input {
-      width: 200px;
+      width: auto;
+      min-width: 500px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .search-bar--banner {
+    &::before {
+      margin-left: 30px;
+    }
+    &__input {
+      min-width: 300px;
     }
   }
 }

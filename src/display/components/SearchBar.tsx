@@ -10,12 +10,13 @@ export const SearchBar: React.FC<Props> = ({ banner = false }) => {
   const bannerClass = banner ? "search-bar--banner" : "search-bar";
   return (
     <form className={bannerClass}>
+      {!banner ? <i className="fas fa-search search-bar__magnifier"></i> : null}
       <input
         type="text"
-        className="search-bar__input"
+        className={bannerClass + "__input"}
         placeholder="Ürün veya kategori ara"
       ></input>
-      <button className="search-bar__submit">Ara</button>
+      <button className={bannerClass + "__submit"}>Ara</button>
     </form>
   );
 };
