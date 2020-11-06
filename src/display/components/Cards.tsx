@@ -1,16 +1,15 @@
 import React from "react";
 import WithCard from "./hoc/WithCard";
 
-import { CategoryNames } from "../../constants/categories";
+import { Products } from "../../constants/products";
+import '../styles/Card.scss';
 
 export const Cards: React.FC = () => {
   return (
-    <div className="categories">
-      <div className="categories__buttons">
-        {CategoryNames.map((category, index) => (
-          <WithCard key={index} name={category} price={index} />
+    <div className="cards">
+        {Products.map((card, index) => (
+          <WithCard key={index} card={card} />
         ))}
-      </div>
     </div>
   );
 };

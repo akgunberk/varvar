@@ -6,7 +6,8 @@ interface withCategoryProps {
 }
 
 const Category = (props: withCategoryProps) => {
-  let [selected, setSelected] = useState(false);
+  let initialState = props.name==='Tüm Kategoriler' ? true : false;
+  let [selected, setSelected] = useState(initialState);
   let selectedClass = selected ? "categories__button--selected" : "";
   return (
     <button

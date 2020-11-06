@@ -1,0 +1,64 @@
+@import "../assets/color-variables";
+.cards {
+  padding: 10px 140px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  column-gap: 24px;
+  row-gap: 20px;
+}
+
+.card {
+  padding: 15px;
+  width: 272px;
+  height: 400px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #e2e7e9;
+  border-radius: 10px;
+  opacity: 1;
+
+  &__name {
+    font-size: 15px;
+  }
+
+  &__cargo-free {
+    font-size: 15px;
+  }
+
+  &__price {
+    font-size: 16px;
+    color: black;
+  }
+
+  &__add-basket {
+    background: white;
+    cursor: pointer;
+    width: 242px;
+    height: 40px;
+    border: 1px solid $color-button;
+    border-radius: 22px;
+    opacity: 1;
+    color: $brand-color;
+    &:active {
+      background: $color-button;
+      color: white;
+    }
+  }
+  &__basket-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    font-size: 22px;
+    i {
+      border-radius: 99px;
+      width: 40px;
+      height: 40px;
+      background: $color-button;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: white;
+    }
+  }
+}
