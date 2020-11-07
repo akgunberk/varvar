@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 
-
-import './App.scss';
-import { Categories, Header } from './display/components';
-import { Cards } from './display/components/Cards';
-
+import { Cards, Categories, Header, Campaigns } from "./display/components";
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Categories/>
-      <Cards/>
+      <Header />
+      <Categories />
+      <Cards />
+      <Campaigns />
+      <div style={{ height: "300px" }}></div>
     </div>
   );
 }

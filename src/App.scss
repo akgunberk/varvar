@@ -1,4 +1,16 @@
+@import "../src/display/assets/breakpoints";
+@import "../src/display/assets/color-variables";
+
+@import "../src/display/styles/Basket.scss";
+@import "../src/display/styles/Card.scss";
+@import "../src/display/styles/Header.scss";
+@import "../src/display/styles/SearchBar.scss";
+
 a,
 button {
   text-decoration: none;
+}
+
+.campaing {
+  display: flex;
 }

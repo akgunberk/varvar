@@ -1,26 +1,26 @@
-import React, {  useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { baseEnhancerHoc } from "./BaseEnhancer";
+import { ACTIONS } from "../../../store/actions";
 
 interface withCategoryProps {
   name: string;
+  selected: boolean;
 }
 
 const Category = (props: withCategoryProps) => {
-  let initialState = props.name==='Tüm Kategoriler' ? true : false;
-  let [selected, setSelected] = useState(initialState);
-  let selectedClass = selected ? "categories__button--selected" : "";
+  const dispatch = useDispatch();
+  let selectedClass = props.selected ? "categories__button--selected" : "";
   return (
     <button
       className={`categories__button ` + selectedClass}
       onClick={() => {
-        setSelected(!selected);
+        dispatch({ type: ACTIONS.CATEGORY, payload: props.name });
       }}
     >
       {props.name}
     </button>
   );
 };
-
-
 
 export default baseEnhancerHoc(Category);

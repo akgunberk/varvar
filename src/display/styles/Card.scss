@@ -69,7 +69,11 @@
   }
 }
 
-@media (max-width: $breakpoint-sm) {
+@media (max-width: $breakpoint-md) {
+  .cards {
+    margin-top: 20px;
+    padding: 0px;
+  }
   .card {
     margin: auto auto;
   }

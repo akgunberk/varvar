@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ShoppingCart } from "../../svgs/components";
 
-import "../styles/Basket.scss";
 
 export const Basket: React.FC = () => {
   let productCount: number = 2;
