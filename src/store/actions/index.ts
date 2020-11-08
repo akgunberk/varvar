@@ -1,5 +1,5 @@
 export enum ACTIONS {
     CATEGORY = "CATEGORY",
-    PRICE = "PRICE",
-    COUNT = "COUNT"
+    ADD_BASKET = "ADD_BASKET",
+    REMOVE_BASKET = "REMOVE_BASKET",
 }

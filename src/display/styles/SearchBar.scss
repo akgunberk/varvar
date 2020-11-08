@@ -8,8 +8,13 @@
 
 .search-bar,
 .search-bar--banner {
+  .input-container {
+    position: relative;
+    flex-grow: 1;
+    margin-left: 20px;
+  }
   &__input {
-    width: 200px;
+    width: 100%;
     background-color: $color-search-bg;
     height: 50px;
     border-radius: 28px;
@@ -22,7 +27,9 @@
     height: 40px;
     border-radius: 28px;
     padding: 0px;
-    margin-left: -70px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
     border: none;
     background-color: $color-success;
     cursor: pointer;
@@ -32,8 +39,8 @@
     height: 20px;
     color: #555555;
     position: absolute;
-    left: 48px;
-    top: 17px;
+    left: 15px;
+    top: 16px;
   }
 }
 

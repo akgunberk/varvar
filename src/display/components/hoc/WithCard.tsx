@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ACTIONS } from "../../../store/actions";
+import { AppState } from "../../../store/reducers";
 import { baseEnhancerHoc } from "./BaseEnhancer";
 
 const images = require.context("../../../pngs", false);
@@ -12,36 +15,31 @@ interface withCardProps {
 }
 
 const Card = (props: withCardProps) => {
-  let [count, setCount] = useState(0);
+  let { name, price, image } = props.card;
+  let product = useSelector((store: AppState) => store.basket.filter(el=>el.name===name)[0]);
+
+  const dispatch = useDispatch();
   const increment = () => {
-    setCount(count + 1);
+    dispatch({ type: ACTIONS.ADD_BASKET, payload: { name, price } });
   };
   const decrement = () => {
-    if (count === 0) {
-      return;
-    }
-    setCount(count - 1);
+    dispatch({ type: ACTIONS.REMOVE_BASKET, payload: { name, price } });
   };
-  let source = images("./" + props.card.image + ".png")
+  let source = images("./" + image + ".png");
   return (
     <div className="card">
-      <img src={source.default} alt={props.card.name} width="244px" height="242px" />
-      <div className="card__name">{props.card.name} </div>
+      <img src={source.default} alt={name} width="244px" height="242px" />
+      <div className="card__name">{name} </div>
       <div className="card__cargo-free">Ücretsiz Teslimat</div>
-      <div className="card__price">{props.card.price} TL</div>
-      {count > 0 ? (
+      <div className="card__price">{price} TL</div>
+      {!!product && product.count > 0 ? (
         <div className="card__basket-count">
           <i onClick={decrement} className="fas fa-minus"></i>
-          {count}
+          {product.count}
           <i onClick={increment} className="fas fa-plus"></i>
         </div>
       ) : (
-        <button
-          className="card__add-basket"
-          onClick={() => {
-            setCount(count + 1);
-          }}
-        >
+        <button className="card__add-basket" onClick={increment}>
           Sepete Ekle
         </button>
       )}

@@ -3,14 +3,12 @@ import { ACTIONS } from "../actions";
 
 export interface AppState {
     selected: string[];
-    totalPrice: number;
-    totalCount: number;
+    basket: { name: string; price: number; count: number }[];
 }
 
 const initialState: AppState = {
     selected: [],
-    totalPrice: 0,
-    totalCount: 0,
+    basket: [],
 };
 
 type action = {
@@ -27,31 +25,43 @@ export default function reducer(state = initialState, action: action) {
                     ...state,
                     selected: [],
                 };
-            }
-            else if (state.selected.length === 0 || index < 0) {
+            } else if (state.selected.length === 0 || index < 0) {
                 return {
                     ...state,
                     selected: [...state.selected, action.payload],
                 };
-            }
-            else {
+            } else {
                 return {
                     ...state,
                     selected: state.selected.filter((el) => el !== action.payload),
                 };
             }
         }
-        case ACTIONS.PRICE: {
-            return {
-                ...state,
-                totalPrice: state.totalPrice + action.payload,
-            };
+        case ACTIONS.ADD_BASKET: {
+            let { name, price } = action.payload;
+            let basket: { name: any; price: any; count: number }[] = [...state.basket];
+
+            if (
+                state.basket.filter((el) => el.name === name).length > 0
+            ) {
+                state.basket.forEach((product, index) => {
+                    if (product.name === action.payload.name) {
+                        basket[index] = { ...product, count: product.count + 1 };
+                    }
+                });
+            } else {
+                basket.push({ name, price, count: 1 });
+            }
+            return { ...state, basket };
         }
-        case ACTIONS.COUNT: {
-            return {
-                ...state,
-                totalCount: state.totalCount + action.payload,
-            };
+        case ACTIONS.REMOVE_BASKET: {
+            let basket: { name: any; price: any; count: number }[] = [...state.basket];
+            state.basket.forEach((product, index) => {
+                if (product.name === action.payload.name && product.count > 0) {
+                    basket[index] = { ...product, count: product.count - 1 };
+                }
+            });
+            return { ...state, basket };
         }
         default:
             return state;

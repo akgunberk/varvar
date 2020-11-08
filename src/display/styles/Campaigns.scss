@@ -1,21 +1,20 @@
 @import "../assets/breakpoints";
 
 .campaigns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  column-gap: 20px;
-  row-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 20px 70px;
 
   &__campaign {
     background: #e8f1ff;
     width: auto;
-    max-width: 480px;
     height: 152px;
     display: flex;
     border-radius: 10px;
     padding: 10px;
     margin: auto;
+    margin-bottom: 20px;
 
     &:first-child {
       background: #ffeae8;
@@ -55,10 +54,20 @@
 @media (min-width: $breakpoint-sm) {
   .campaigns {
     padding: 20px 140px;
+    &__campaign {
+      max-width: 480px;
+    }
   }
 }
 @media (max-width: $breakpoint-sm) {
   .campaigns {
-    display: none;
+    display: flexbox;
+    justify-content: center;
+    img {
+      display: none;
+    }
+    &__campaign {
+      max-width: 320px;
+    }
   }
 }

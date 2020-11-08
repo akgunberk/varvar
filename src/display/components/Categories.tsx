@@ -8,7 +8,6 @@ import { AppState } from "../../store/reducers";
 
 export const Categories: React.FC = () => {
   let selectedCategories = useSelector((store: AppState) => store.selected);
-
   return (
     <div className="categories">
       <i className="fas fa-bars categories__hamburger"></i>

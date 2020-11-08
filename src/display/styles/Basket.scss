@@ -4,6 +4,7 @@
   &__button {
     display: none;
     cursor: pointer;
+    border: none;
   }
   &__logo {
     font-size: 28px;
@@ -20,10 +21,53 @@
     height: 25px;
     border-radius: 99px;
   }
+  &__information {
+    display: none;
+    position: absolute;
+    margin-top: 15px;
+    left: -180px;
+    width: 343px;
+    height: 69px;
+    background-color: #f54257;
+    border-radius: 16px;
+    text-align: center;
+    line-height: 69px;
+    &:before {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border-bottom: 10px solid #f54257;
+      border-top: 10px solid transparent;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      position: absolute;
+      top: -20px;
+      right: 70px;
+    }
+  }
+  &__thunder {
+    color: $color-thunder;
+    margin-right: 4px;
+  }
+
+  &__bar {
+    width: 293px;
+    height: 5px;
+    background: #d01d32;
+    border-radius: 22px;
+    margin: -16px auto 0px;
+    &--progress {
+      border-radius: 22px;
+      background: #ffce00;
+    }
+  }
 }
 
 @media (min-width: $breakpoint-sm) {
   .basket {
+    &__information {
+      display: block;
+    }
     &__logo {
       display: none !important;
     }
