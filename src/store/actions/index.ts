@@ -2,4 +2,5 @@ export enum ACTIONS {
     CATEGORY = "CATEGORY",
     ADD_BASKET = "ADD_BASKET",
     REMOVE_BASKET = "REMOVE_BASKET",
+    SEARCH = "SEARCH",
 }

@@ -4,11 +4,13 @@ import { ACTIONS } from "../actions";
 export interface AppState {
     selected: string[];
     basket: { name: string; price: number; count: number }[];
+    searched: string[];
 }
 
 const initialState: AppState = {
     selected: [],
     basket: [],
+    searched: [],
 };
 
 type action = {
@@ -62,6 +64,10 @@ export default function reducer(state = initialState, action: action) {
                 }
             });
             return { ...state, basket };
+        }
+        case ACTIONS.SEARCH: {
+            let searched = action.payload;
+            return { ...state, searched }
         }
         default:
             return state;
